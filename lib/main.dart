@@ -13,11 +13,23 @@ void main() async {
 
 Future<void> _requestPermissions() async {
   // Request permissions
-  await [
+  final status = await [
     Permission.camera,
     Permission.microphone,
-    Permission.photos, // Includes read/write access to external storage
+    Permission.photos, // For media access
+    Permission.storage, // For file storage access
   ].request();
+
+  // Check if permissions are granted
+  if (status[Permission.storage] != PermissionStatus.granted) {
+    // Handle case when storage permission is not granted
+    print('Storage permission not granted');
+    if (status[Permission.storage] == PermissionStatus.permanentlyDenied) {
+      // Open app settings if the permission is permanently denied
+      await openAppSettings();
+    }
+  }
+  // Handle other permissions similarly if needed
 }
 
 class MyApp extends StatelessWidget {

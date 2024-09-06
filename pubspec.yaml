@@ -38,6 +38,8 @@ dependencies:
   flutter_inappwebview: ^6.0.0
   flutter_launcher_icons: ^0.13.1
   permission_handler: ^11.2.1 # Use the latest version
+  path_provider: ^2.0.7
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
