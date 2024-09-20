@@ -37,7 +37,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,  // Disable the debug banner here
-      home: WebViewPage(), // Your WebView page
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            '',
+            style: TextStyle(color: Colors.black),  // Set the title color to black
+          ),
+          centerTitle: true, // Center the title
+          backgroundColor: Colors.white, // Change the AppBar background color to white
+          iconTheme: IconThemeData(color: Colors.black), // Change the color of the AppBar icons (like back button) to black
+          elevation: 0, // Optional: remove shadow under AppBar
+          toolbarHeight: 15.0, // Set the height of the AppBar (e.g., 80.0 pixels)
+        ),
+        body: WebViewPage(), // Your WebView page goes here
+      ),
     );
   }
 }
